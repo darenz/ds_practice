@@ -5,7 +5,7 @@ using namespace std;
 template<typename ElemType>
 LinkList<ElemType>::LinkList()
 {
-    head = new LinkNode;
+    head = new ListNode;
     head->data = 0;
     head->next = NULL;
     length = 0;
@@ -33,10 +33,11 @@ LinkList<ElemType>::LinkList(LinkList<ElemType> &otherL)
         pt = pthis;
         pother = pother->next;
         length++;
+    }
 }
 
 template<typename ElemType>
-Status LinkList<ElemType>::insert(int i,ElemType<ElemType> e)
+Status LinkList<ElemType>::insert(int i,ElemType e)
 {
     if(i<1 || i>length+1 || length==0)
     {
@@ -58,14 +59,14 @@ Status LinkList<ElemType>::insert(int i,ElemType<ElemType> e)
 }
 
 template<typename ElemType>
-Status LinkList<ElemType>::deleteElem(ElemType<ElemType> e)
+Status LinkList<ElemType>::deleteElem(ElemType e)
 {
-    NodePionter p = head;
+    NodePointer p = head;
     while(p!=NULL)
     {
         if(p->next->elem == e)
         {
-            NodePionter pt = p->next;
+            NodePointer pt = p->next;
             p->next = pt->next;
             delete pt;
             return OK;
@@ -88,7 +89,7 @@ Status LinkList<ElemType>::clear()
     }
     delete p;
     delete q;
-    length = 0
+    length = 0;
     head->next = NULL;
     return OK;
 }
@@ -100,13 +101,13 @@ int LinkList<ElemType>::getLength()
 }
 
 template<typename ElemType>
-NodePointer LinkList<ElemType>::getHead()
+typename LinkList<ElemType>::NodePointer LinkList<ElemType>::getHead()
 {
     return head;
 }
 
 template<typename ElemType>
-Status LinkList<ElemType>::showList()
+Status LinkList<ElemType>::show()
 {
     NodePointer p = head->next;
     while(p)
@@ -118,7 +119,7 @@ Status LinkList<ElemType>::showList()
 }
 
 template<typename ElemType>
-Status LinkList<ElemType>::append(ElemType<ElemType> e)
+Status LinkList<ElemType>::append(ElemType e)
 {
     NodePointer p = new ListNode;
     p->elem = e;
