@@ -3,7 +3,7 @@
 using namespace std;
 
 template<typename ElemType>
-LinkList::LinkList()
+LinkList<ElemType>::LinkList()
 {
     head = new LinkNode;
     head->data = 0;
@@ -12,14 +12,14 @@ LinkList::LinkList()
 }
 
 template<typename ElemType>
-LinkList::~LinkList()
+LinkList<ElemType>::~LinkList()
 {
     clear();
     delete head;
 }
 
 template<typename ElemType>
-LinkList& LinkList(LinkList &otherL)
+LinkList<ElemType>::LinkList(LinkList<ElemType> &otherL)
 {
     NodePointer pthis = head->next;
     NodePointer pt = head;
@@ -33,12 +33,10 @@ LinkList& LinkList(LinkList &otherL)
         pt = pthis;
         pother = pother->next;
         length++;
-    }
-    return *this;
 }
 
 template<typename ElemType>
-Status LinkList::insert(int i,ElemType e)
+Status LinkList<ElemType>::insert(int i,ElemType<ElemType> e)
 {
     if(i<1 || i>length+1 || length==0)
     {
@@ -60,7 +58,7 @@ Status LinkList::insert(int i,ElemType e)
 }
 
 template<typename ElemType>
-Status LinkList::deleteElem(ElemType e)
+Status LinkList<ElemType>::deleteElem(ElemType<ElemType> e)
 {
     NodePionter p = head;
     while(p!=NULL)
@@ -78,7 +76,7 @@ Status LinkList::deleteElem(ElemType e)
 }
 
 template<typename ElemType>
-Status LinkList::clear()
+Status LinkList<ElemType>::clear()
 {
     NodePointer p = head->next;
     NodePointer q = p->next;
@@ -96,19 +94,19 @@ Status LinkList::clear()
 }
 
 template<typename ElemType>
-int LinkList::getLength()
+int LinkList<ElemType>::getLength()
 {
     return length;
 }
 
 template<typename ElemType>
-NodePointer LinkList::getHead()
+NodePointer LinkList<ElemType>::getHead()
 {
     return head;
 }
 
 template<typename ElemType>
-Status LinkList::showList()
+Status LinkList<ElemType>::showList()
 {
     NodePointer p = head->next;
     while(p)
@@ -120,7 +118,7 @@ Status LinkList::showList()
 }
 
 template<typename ElemType>
-Status LinkList::append(ElemType e)
+Status LinkList<ElemType>::append(ElemType<ElemType> e)
 {
     NodePointer p = new ListNode;
     p->elem = e;

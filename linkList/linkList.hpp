@@ -5,6 +5,7 @@ typedef int Status;
 template<typename ElemType>
 class LinkList
 {
+    public:
         class LinkNode
         {
              public:
@@ -15,7 +16,7 @@ class LinkList
 
         LinkList();
         ~LinkList();
-        LinkList& LinkList(LinkList& otherL);
+        LinkList(LinkList<ElemType>& otherL);
         
         Status append(ElemType e);
         Status insert(int i,ElemType e);

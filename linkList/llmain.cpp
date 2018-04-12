@@ -2,10 +2,14 @@
 #include "linkList.hpp"
 using namespace std;
 
+typedef int ElemType;
+
 int main()
 {
-    LinkList<int> list();
+    LinkList<ElemType> list;
     int n;
+    Status s;
+    ElemType e;
     while(1)
     {
         cout<<"element type : int"<<endl;
@@ -17,12 +21,10 @@ int main()
         cout<<"0.exit"<<endl;
 
         cin>>n;
-        Status s;
         switch(n)
         {
             case 1:
                 cout<<"input element:"<<endl;
-                ElemType e;
                 cin>>e;
                 s = list.append(e);
                 if(s == OK)
@@ -30,7 +32,6 @@ int main()
                 break;
             case 2:
                 cout<<"input element:"<<endl;
-                ElemType e;
                 cin>>e;
                 cout<<"input location:"<<endl;
                 int i;
@@ -41,7 +42,6 @@ int main()
                 break;
             case 3:
                 cout<<"input an element to delete:"<<endl;
-                ElemType e;
                 cin>>e;
                 s = list.deleteElem(e);
                 if(s == OK)
