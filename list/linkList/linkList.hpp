@@ -1,7 +1,9 @@
+#include<iostream>
 #define ERRO 0
 #define OK 1
 typedef int Status;
 
+using namespace std;
 template<typename ElemType>
 class LinkList
 {
@@ -30,7 +32,6 @@ class LinkList
         int length;
 };
 
-using namespace std;
 template<typename ElemType>
 LinkList<ElemType>::LinkList()
 {
